@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eprosec/models/news.dart';
 import 'package:flutter/material.dart';
 
@@ -20,15 +21,19 @@ class _NewsPageState extends State<NewsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 200,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(widget.news.image)
+            CachedNetworkImage(
+              imageUrl: widget.news.image,
+              imageBuilder: (context, imageProvider) => Container(
+                width: MediaQuery.of(context).size.width,
+                height: 200,
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  image: DecorationImage(
+                      image: imageProvider, fit: BoxFit.cover),
                 ),
               ),
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
             const SizedBox(height: 10),
             Padding(
