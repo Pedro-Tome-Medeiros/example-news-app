@@ -1,4 +1,4 @@
-import 'package:eprosec/screens/news/news.dart';
+import 'package:eprosec/screens/news/news-list.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const NewsPage()
+      home: NewsListPage()
     );
   }
 }
