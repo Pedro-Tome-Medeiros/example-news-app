@@ -1,4 +1,4 @@
-# eprosec
+# example news app
 
 A new Flutter project.
 
