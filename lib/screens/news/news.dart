@@ -27,8 +27,8 @@ class _NewsPageState extends State<NewsPage> {
                 height: 200,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  image: DecorationImage(
-                      image: imageProvider, fit: BoxFit.cover),
+                  image:
+                      DecorationImage(image: imageProvider, fit: BoxFit.cover),
                 ),
               ),
               placeholder: (context, url) => const CircularProgressIndicator(),
@@ -47,8 +47,7 @@ class _NewsPageState extends State<NewsPage> {
                   Text(
                     widget.news.date,
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey),
+                        fontWeight: FontWeight.bold, color: Colors.grey),
                   ),
                   const SizedBox(height: 5),
                   Text(widget.news.text, style: const TextStyle(height: 1.5))

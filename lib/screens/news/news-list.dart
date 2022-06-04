@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:news/models/news.dart';
 import 'package:news/screens/news/news.dart';
 
-
 class NewsListPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _NewsListPageSate();
@@ -84,6 +83,5 @@ class _NewsListPageSate extends State<NewsListPage> {
       _newsList =
           (json.decode(jsonText) as List).map((e) => News.fromJson(e)).toList();
     });
-
   }
 }
