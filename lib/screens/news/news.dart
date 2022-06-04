@@ -1,18 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eprosec/models/news.dart';
 import 'package:flutter/material.dart';
+import 'package:news/models/news.dart';
 
 class NewsPage extends StatefulWidget {
-  News news;
+  final News news;
 
-  NewsPage({Key? key, required this.news}) : super(key: key);
+  const NewsPage({Key? key, required this.news}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _NewsPageState();
+  State<NewsPage> createState() => _NewsPageState();
 }
 
 class _NewsPageState extends State<NewsPage> {
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -49,7 +48,6 @@ class _NewsPageState extends State<NewsPage> {
                     widget.news.date,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 10,
                         color: Colors.grey),
                   ),
                   const SizedBox(height: 5),

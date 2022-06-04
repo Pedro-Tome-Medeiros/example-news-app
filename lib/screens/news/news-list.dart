@@ -1,10 +1,11 @@
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eprosec/models/news.dart';
-import 'package:eprosec/screens/news/news.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:news/models/news.dart';
+import 'package:news/screens/news/news.dart';
+
 
 class NewsListPage extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _NewsListPageSate extends State<NewsListPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(title: const Text('Noticias')),
+        appBar: AppBar(title: const Text('News')),
         body: ListView.builder(
             itemCount: _newsList.length,
             itemBuilder: (context, index) {
@@ -60,8 +61,10 @@ class _NewsListPageSate extends State<NewsListPage> {
                             image: imageProvider, fit: BoxFit.cover),
                       ),
                     ),
-                    placeholder: (context, url) => const CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                   trailing: const Icon(Icons.keyboard_arrow_right),
                   onTap: () {
@@ -77,7 +80,10 @@ class _NewsListPageSate extends State<NewsListPage> {
 
   Future<void> _loadNews() async {
     final jsonText = await rootBundle.loadString('assets/data/news.json');
-    _newsList =
-        (json.decode(jsonText) as List).map((e) => News.fromJson(e)).toList();
+    setState(() {
+      _newsList =
+          (json.decode(jsonText) as List).map((e) => News.fromJson(e)).toList();
+    });
+
   }
 }
